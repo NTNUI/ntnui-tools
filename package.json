@@ -1,40 +1,63 @@
 {
-	"name": "ntnui-application-form-wrapper",
+	"name": "ntnui-tools",
 	"version": "0.1.0",
-	"description": "NTNUI Admin application form wrapper",
-	"scripts": {
-		"prefrontend": "cd frontend && npm install",
-		"frontend": "cd frontend && npm run start",
-		"prebackend": "cd package && npm install && cd ../backend && npm install",
-		"backend": "cd backend && npx nodemon --exec npx ts-node app.ts",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"prettier": "npm install && prettier --check .",
-		"eslint": "npm install && eslint . --ext ts --ext tsx",
-		"check": "npm install && eslint . --ext ts --ext tsx && prettier --check .",
-		"fix": "npm install && npx prettier --write . && eslint . --ext .ts,.tsx --fix"
-	},
+	"description": "An npm module with a collection of tools for utilizing NTNUI API.",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NTNUI/it2901-v22.git"
+		"url": "https://github.com/NTNUI/ntnui-tools.git"
 	},
-	"author": "NTNUI",
 	"bugs": {
-		"url": "https://github.com/NTNUI/it2901-v22/issues"
+		"url": "https://github.com/NTNUI/ntnui-tools/issues"
 	},
-	"homepage": "https://github.com/NTNUI/it2901-v22#readme",
+	"author": {
+		"name": "NTNUI Sprint",
+		"email": "sprint@ntnui.no",
+		"url": "https://ntnui.no"
+	},
+	"main": "./index.js",
+	"exports": {
+		".": "./index.js",
+		"./customError": "./customError.js"
+	},
+	"files": [
+		"index.d.ts",
+		"index.js",
+		"customError.d.ts",
+		"customError.js"
+	],
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"scripts": {
+		"prepublish": "npm run build",
+		"build": "npm run fix && tsc",
+		"prettier": "prettier --check .",
+		"eslint": "eslint . --ext ts --ext tsx",
+		"check": "eslint . --ext ts --ext tsx && prettier --check .",
+		"fix": "prettier --write . && eslint ./src --ext .ts,.tsx --fix"
+	},
+	"keywords": [
+		"ntnui",
+		"ntnui-tools",
+		"ntnui-client",
+		"ntnui-api",
+		"ntnui-api-tools",
+		"ntnui-api-client",
+		"ntnui-api-wrapper"
+	],
+	"dependencies": {
+		"axios": "^0.26.0"
+	},
 	"devDependencies": {
-		"@types/react": "^17.0.39",
-		"@typescript-eslint/eslint-plugin": "^5.12.1",
-		"@typescript-eslint/parser": "^5.12.1",
-		"eslint": "^8.9.0",
-		"eslint-config-airbnb": "^19.0.4",
-		"eslint-config-airbnb-typescript": "^16.1.0",
-		"eslint-config-prettier": "^8.4.0",
-		"eslint-plugin-import": "^2.25.4",
-		"eslint-plugin-jsx-a11y": "^6.5.1",
-		"eslint-plugin-react": "^7.29.0",
-		"eslint-plugin-react-hooks": "^4.3.0",
-		"prettier": "^2.5.1",
+		"@typescript-eslint/eslint-plugin": "^5.19.0",
+		"@typescript-eslint/parser": "^5.19.0",
+		"eslint": "^8.13.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-airbnb-typescript": "^17.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"prettier": "^2.6.2",
 		"typescript": "^4.5.5"
 	}
 }

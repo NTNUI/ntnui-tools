@@ -1,7 +1,9 @@
-Related to #<!--ISSUE ID-->
+<!--
+~~If applicable:~~ Closes #issueID
+-->
 
 ## Summary of changes
 
 <!--
-Remember to include a picture showing visual changes if needed
+A few human readable sentences describing the changes.
 -->
