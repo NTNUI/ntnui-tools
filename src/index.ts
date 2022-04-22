@@ -1,11 +1,15 @@
 import axios from 'axios'
+import dotenv from 'dotenv'
 import {
 	BadRequestError,
 	CustomError,
 	UnauthorizedUserError,
 } from './customError'
 
-axios.defaults.baseURL = 'https://dev.api.ntnui.no/' // TODO: GET FROM ENV OR CONFIG
+dotenv.config()
+
+axios.defaults.baseURL =
+	process.env.NTNUI_TOOLS_API_URL || 'https://api.ntnui.no/'
 
 type IGroupPageResult = {
 	data: {
