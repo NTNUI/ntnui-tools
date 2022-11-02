@@ -1,11 +1,18 @@
 # ntnui-tools
 
-An npm package with a collection of useful tools for using NTNUI API.
+An npm package with a collection of tools for easier utilization of [NTNUI API](https://api.ntnui.no/).
 
 ## Installation
 
 ```sh
 npm i ntnui-tools
+```
+
+The default API URL is `https://api.ntnui.no`. Change it by setting `NTNUI_TOOLS_API_URL` as an environment variable during development.
+
+```sh
+# .env in your project
+NTNUI_TOOLS_API_URL = 'https://dev.api.ntnui.no'
 ```
 
 ## Example usage
