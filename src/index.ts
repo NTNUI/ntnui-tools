@@ -116,7 +116,27 @@ async function refreshNtnuiToken(token: string): Promise<INtnuiAccessToken> {
 }
 
 interface IUserProfileResponse {
-	data: { first_name: string; last_name: string }
+	data: {
+		first_name: string,
+		last_name: string,
+		date_of_birth?: string,
+		address?: string,
+		zip_code?: string,
+		register_date?: string,
+		email: string,
+		sit_email?: string,
+		contact_email?: string,
+		phone_number: string,
+		ntnui_no: number,
+		contract_expiry_date?: string,
+		memberships: {
+			group: string,
+			slug: string,
+			membership_no: number,
+			type: string,
+			group_expiry: string
+		}[]
+	}
 }
 
 async function getNtnuiProfile(token: string): Promise<IUserProfileResponse> {
