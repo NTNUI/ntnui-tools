@@ -19,34 +19,29 @@ type IGroupPageResult = {
 	}
 }
 
-export const getAllGroups = async (
-    category?: string
-  ): Promise<Group[]> => {
-    const response = await axios.get<Group[]>(
-      '/groups/?page_size=500'
-    );
-  
-    const groups = category
-      ? response.data.filter((group) => group.category === category)
-      : response.data;
+export const getAllGroups = async (category?: string): Promise<Group[]> => {
+	const response = await axios.get<Group[]>('/groups/?page_size=500')
+
+	const groups = category
+		? response.data.filter((group) => group.category === category)
+		: response.data
 
 	return groups
-  };
+}
 
-  interface Group {
-	group_id: number;
-	name: string;
-	name_english: string;
-	slug: string;
-	gsuite_prefix: string;
-	subgroups: any[];
-	member?: boolean;
-	access: string;
-	sent_request?: boolean;
-	category: string;
-	website_link: string;
-  }
-  
+interface Group {
+	group_id: number
+	name: string
+	name_english: string
+	slug: string
+	gsuite_prefix: string
+	subgroups: any[]
+	member?: boolean
+	access: string
+	sent_request?: boolean
+	category: string
+	website_link: string
+}
 
 async function getRoleInGroup(
 	group_slug: string,
