@@ -19,6 +19,37 @@ type IGroupPageResult = {
 	}
 }
 
+export const getAllGroups = async (category?: string): Promise<Group[]> => {
+	const response = await axios.get<GroupApiResponse>('groups/?page_size=300')
+
+	const groups = category
+		? response.data.results.filter((group) => group.category === category)
+		: response.data.results
+
+	return groups
+}
+
+interface Group {
+	group_id: number
+	name: string
+	name_english: string
+	slug: string
+	gsuite_prefix: string
+	subgroups: any[]
+	member?: boolean
+	access: string
+	sent_request?: boolean
+	category: string
+	website_link: string
+}
+
+interface GroupApiResponse {
+	count: number
+	next: string | null
+	previous: string | null
+	results: Group[]
+}
+
 async function getRoleInGroup(
 	group_slug: string,
 	token: string
