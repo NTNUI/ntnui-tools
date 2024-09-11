@@ -1,6 +1,6 @@
 {
 	"name": "ntnui-tools",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "An npm module with a collection of tools for utilizing NTNUI API.",
 	"license": "MIT",
 	"repository": {
@@ -47,8 +47,8 @@
 		"ntnui-api-wrapper"
 	],
 	"dependencies": {
-		"axios": "^0.26.0",
-		"dotenv": "^16.0.0"
+		"axios": "^1.7.7",
+		"dotenv": "^16.4.5"
 	},
 	"devDependencies": {
 		"@types/node": "^17.0.25",
