@@ -160,6 +160,16 @@ interface IUserProfileResponse {
 		phone_number: string
 		ntnui_no: number
 		contract_expiry_date?: string
+		contracts: {
+			expiry_date: string
+			type: string
+			start_date: string
+			contract_name: string
+			contract_number: number
+			contract_type: string
+			contract_freeze_start_date: string
+			contract_freeze_end_date: string
+		}[]
 		memberships: {
 			group: string
 			slug: string
